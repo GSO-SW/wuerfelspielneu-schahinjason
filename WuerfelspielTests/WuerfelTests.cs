@@ -13,5 +13,14 @@ namespace WuerfelspielTests
             //Act
             Wuerfel wuerfel = new Wuerfel();
         }
+
+        [TestMethod]
+        public void Wuerfel_WuerfelKannMitAnzahlErstelltWerden()
+        {
+            //Arrange
+            int anzahl = 8;
+            //Act
+            Wuerfel wuerfel = new Wuerfel(anzahl);
+        }
     }
 }

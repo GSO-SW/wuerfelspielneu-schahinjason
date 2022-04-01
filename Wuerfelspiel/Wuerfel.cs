@@ -8,5 +8,11 @@ namespace Wuerfelspiel
         {
 
         }
+        public Wuerfel(int anzahlSeiten)
+        {
+            this.anzahlSeiten = anzahlSeiten;
+        }
+
+        int anzahlSeiten;
     }
 }
