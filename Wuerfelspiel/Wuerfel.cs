@@ -14,5 +14,10 @@ namespace Wuerfelspiel
         }
 
         int anzahlSeiten;
+
+        public int AnzahlSeiten
+        {
+            get { return anzahlSeiten; }
+        }
     }
 }

@@ -22,5 +22,15 @@ namespace WuerfelspielTests
             //Act
             Wuerfel wuerfel = new Wuerfel(anzahl);
         }
+
+        [TestMethod]
+        public void Wuerfel_WuerfelWirdMitSechsSeitenErstellt()
+        {
+            //Arrange
+            Wuerfel wuerfel = new Wuerfel();
+
+            //Act
+            int anzahlSeiten = wuerfel.AnzahlSeiten;
+        }
     }
 }
