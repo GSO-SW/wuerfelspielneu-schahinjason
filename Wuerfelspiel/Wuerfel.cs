@@ -13,6 +13,12 @@ namespace Wuerfelspiel
             this.anzahlSeiten = anzahlSeiten;
         }
 
+        public int Wuerfeln()
+        {
+            return rndWuerfel.Next(0, anzahlSeiten);
+        }
+
+        static Random rndWuerfel = new Random();
         int anzahlSeiten;
 
         public int AnzahlSeiten

@@ -49,5 +49,15 @@ namespace WuerfelspielTests
             //Assert
             Assert.AreEqual(anzahlSeiten, ergebniss);
         }
+
+        [TestMethod]
+        public void Wuerfeln_DurchWuerfelnKannEineZufaelligeZahlErzeugtWerden()
+        {
+            //Arrange
+            Wuerfel wuerfel = new Wuerfel();
+
+            //Act
+            int zahl = wuerfel.Wuerfeln();
+        }
     }
 }
