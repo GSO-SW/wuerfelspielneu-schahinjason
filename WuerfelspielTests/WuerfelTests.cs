@@ -31,6 +31,9 @@ namespace WuerfelspielTests
 
             //Act
             int anzahlSeiten = wuerfel.AnzahlSeiten;
+
+            //Assert
+            Assert.AreEqual(anzahlSeiten, 6);
         }
     }
 }

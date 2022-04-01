@@ -4,7 +4,7 @@ namespace Wuerfelspiel
 {
     public class Wuerfel
     {
-        public Wuerfel()
+        public Wuerfel() :this(6)
         {
 
         }
