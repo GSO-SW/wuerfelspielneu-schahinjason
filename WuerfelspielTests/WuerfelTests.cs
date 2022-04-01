@@ -35,5 +35,19 @@ namespace WuerfelspielTests
             //Assert
             Assert.AreEqual(anzahlSeiten, 6);
         }
+
+        [TestMethod]
+        public void AnzahlSeiten_AnzahlSeitenKannAbgefragtWerden()
+        {
+            //Arrange
+            int anzahlSeiten = 8;
+            Wuerfel wuerfel = new Wuerfel(anzahlSeiten);
+
+            //Act
+            int ergebniss = wuerfel.AnzahlSeiten;
+
+            //Assert
+            Assert.AreEqual(anzahlSeiten, ergebniss);
+        }
     }
 }
