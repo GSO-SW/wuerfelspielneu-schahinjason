@@ -4,5 +4,9 @@ namespace Wuerfelspiel
 {
     public class Wuerfel
     {
+        public Wuerfel()
+        {
+
+        }
     }
 }
