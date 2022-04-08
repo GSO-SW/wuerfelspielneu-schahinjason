@@ -72,5 +72,18 @@ namespace WuerfelspielTests
             //Assert
             Assert.AreEqual(wurf, wuerfel.LetztesErgebnis);
         }
+        [TestMethod]
+        public void SicherungUmschalten_WuerfelKannGesichertWerden()
+        {
+            //Arrange
+            Wuerfel wuerfel = new Wuerfel();
+            bool istGesichertVorher = wuerfel.IstGesichert;
+
+            //Act
+            wuerfel.SicherungUmschalten();
+
+            //Assert
+            Assert.IsTrue(istGesichertVorher != wuerfel.IstGesichert);
+        }
     }
 }
