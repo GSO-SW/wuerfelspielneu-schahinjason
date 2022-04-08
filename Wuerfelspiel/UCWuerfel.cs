@@ -21,16 +21,50 @@ namespace Wuerfelspiel
         {
             Graphics graphics = e.Graphics;
 
-            int w = ClientSize.Width;
-            int h = ClientSize.Height;
+            int w = Size.Width;
+            int h = Size.Height;
 
-            graphics.DrawRectangle(new Pen(Color.Black), recWuerfel);
+            graphics.DrawRectangle(blackPen, recWuerfel);
             graphics.DrawString(wuerfel.LetztesErgebnis.ToString(), Form.DefaultFont, new SolidBrush(Color.Black), 0,0);
+
+            while (wuerfel.LetztesErgebnis != 1)
+            {
+                wuerfel.Wuerfeln();
+            }
+
+            if (wuerfel.LetztesErgebnis == 1)
+            {
+                graphics.FillEllipse(blackBrush, recWuerfel.Width /2 - wuerfelPunkt.Width/2, recWuerfel.Height /2 - wuerfelPunkt.Height, wuerfelPunkt.Width, wuerfelPunkt.Height);
+            }
+            else if (wuerfel.LetztesErgebnis == 2)
+            {
+
+            }
+            else if (wuerfel.LetztesErgebnis == 3)
+            {
+
+            }
+            else if (wuerfel.LetztesErgebnis == 4)
+            {
+
+            }
+            else if (wuerfel.LetztesErgebnis == 5)
+            {
+
+            }
+            else if (wuerfel.LetztesErgebnis == 6)
+            {
+
+            }
         }
+        private Pen blackPen = new Pen(Color.Black, 2);
+        private SolidBrush blackBrush = new SolidBrush(Color.Black);
+        private Size wuerfelPunkt;
 
         private void UCWuerfel_Load(object sender, EventArgs e)
         {
-            recWuerfel = new Rectangle(0,0,btnWuerfeln.Location.X, btnWuerfeln.Location.Y);
+            recWuerfel = new Rectangle(0,0,ClientSize.Width, btnWuerfeln.Location.Y);
+            wuerfelPunkt = new Size(ClientSize.Width / 10, ClientSize.Height / 10);
         }
 
         private void btnWuerfeln_Click(object sender, EventArgs e)
