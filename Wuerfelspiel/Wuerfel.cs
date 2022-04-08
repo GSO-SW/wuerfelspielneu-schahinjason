@@ -16,7 +16,7 @@ namespace Wuerfelspiel
 
         public int Wuerfeln()
         {
-            letztesErgebnis = rndWuerfel.Next(0, anzahlSeiten);
+            letztesErgebnis = rndWuerfel.Next(1, anzahlSeiten + 1);
             return letztesErgebnis;
         }
         public bool SicherungUmschalten()
