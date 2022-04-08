@@ -20,10 +20,15 @@ namespace Wuerfelspiel
 
         static Random rndWuerfel = new Random();
         int anzahlSeiten;
+        int letztesErgebnis;
 
         public int AnzahlSeiten
         {
             get { return anzahlSeiten; }
+        }
+        public int LetztesErgebnis
+        {
+            get { return letztesErgebnis; }
         }
     }
 }
