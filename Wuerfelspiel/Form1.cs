@@ -15,6 +15,12 @@ namespace Wuerfelspiel
         public Form1()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+        }
+
+        private void ucWuerfel1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
