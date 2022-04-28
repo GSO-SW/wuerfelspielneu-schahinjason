@@ -25,56 +25,85 @@ namespace Wuerfelspiel
             int h = Size.Height;
 
             graphics.DrawRectangle(blackPen, recWuerfel);
-            graphics.DrawString(wuerfel.LetztesErgebnis.ToString(), Form.DefaultFont, new SolidBrush(Color.Black), 0,0);
+            graphics.DrawString(wert.ToString(), Form.DefaultFont, new SolidBrush(Color.Black), 0,0);
 
-            while (wuerfel.LetztesErgebnis != 1)
+            List<Rectangle> rectangles = new List<Rectangle>();
+            int x = 0;
+            int y = 0;
+            for (int i = 1; i <= 3; i++)
             {
-                wuerfel.Wuerfeln();
+                for (int a = 1; a <= 3; a++)
+                {
+                    rectangles.Add(new Rectangle(new Point(x, y), wuerfelGroesse));
+                    x += Width / 3;
+                }
+                x = 0;
+                y += Size.Height/3;
             }
 
-            if (wuerfel.LetztesErgebnis == 1)
+            foreach (Rectangle item in rectangles)
             {
-                graphics.FillEllipse(blackBrush, recWuerfel.Width /2 - wuerfelPunkt.Width/2, recWuerfel.Height /2 - wuerfelPunkt.Height, wuerfelPunkt.Width, wuerfelPunkt.Height);
+                graphics.DrawRectangle(blackPen, item);
             }
-            else if (wuerfel.LetztesErgebnis == 2)
-            {
 
+            if (wert == 1)
+            {
+                graphics.FillEllipse(blackBrush, rectangles[4]);
             }
-            else if (wuerfel.LetztesErgebnis == 3)
+            else if (wert == 2)
             {
-
+                graphics.FillEllipse(blackBrush, rectangles[2]);
+                graphics.FillEllipse(blackBrush, rectangles[6]);
             }
-            else if (wuerfel.LetztesErgebnis == 4)
+            else if (wert == 3)
             {
-
+                graphics.FillEllipse(blackBrush, rectangles[2]);
+                graphics.FillEllipse(blackBrush, rectangles[4]);
+                graphics.FillEllipse(blackBrush, rectangles[6]);
             }
-            else if (wuerfel.LetztesErgebnis == 5)
+            else if (wert == 4)
             {
-
+                graphics.FillEllipse(blackBrush, rectangles[0]);
+                graphics.FillEllipse(blackBrush, rectangles[2]);
+                graphics.FillEllipse(blackBrush, rectangles[6]);
+                graphics.FillEllipse(blackBrush, rectangles[8]);
             }
-            else if (wuerfel.LetztesErgebnis == 6)
+            else if (wert == 5)
             {
-
+                graphics.FillEllipse(blackBrush, rectangles[0]);
+                graphics.FillEllipse(blackBrush, rectangles[2]);
+                graphics.FillEllipse(blackBrush, rectangles[4]);
+                graphics.FillEllipse(blackBrush, rectangles[6]);
+                graphics.FillEllipse(blackBrush, rectangles[8]);
+            }
+            else if (wert == 6)
+            {
+                graphics.FillEllipse(blackBrush, rectangles[0]);
+                graphics.FillEllipse(blackBrush, rectangles[2]);
+                graphics.FillEllipse(blackBrush, rectangles[3]);
+                graphics.FillEllipse(blackBrush, rectangles[5]);
+                graphics.FillEllipse(blackBrush, rectangles[6]);
+                graphics.FillEllipse(blackBrush, rectangles[8]);
             }
         }
         private Pen blackPen = new Pen(Color.Black, 2);
         private SolidBrush blackBrush = new SolidBrush(Color.Black);
-        private Size wuerfelPunkt;
+        private Size wuerfelGroesse;
 
         private void UCWuerfel_Load(object sender, EventArgs e)
         {
-            recWuerfel = new Rectangle(0,0,ClientSize.Width, btnWuerfeln.Location.Y);
-            wuerfelPunkt = new Size(ClientSize.Width / 10, ClientSize.Height / 10);
-        }
-
-        private void btnWuerfeln_Click(object sender, EventArgs e)
-        {
-            wuerfel.Wuerfeln();
+            recWuerfel = new Rectangle(0,0,Size.Width, Size.Height);
+            wuerfelGroesse = new Size(ClientSize.Width / 3, ClientSize.Height / 3);
             Refresh();
-
         }
+
         Rectangle recWuerfel;
-        Wuerfel wuerfel = new Wuerfel();
-        public int anzahlSeiten;
+        int wert = 0;
+
+        private void UCWuerfel_DoubleClick(object sender, EventArgs e)
+        {
+            wert++;
+            Refresh();
+        }
     }
 }

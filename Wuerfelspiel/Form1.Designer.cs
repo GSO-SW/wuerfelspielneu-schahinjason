@@ -34,7 +34,7 @@
             // ucWuerfel1
             // 
             this.ucWuerfel1.AutoSize = true;
-            this.ucWuerfel1.Location = new System.Drawing.Point(2, 1);
+            this.ucWuerfel1.Location = new System.Drawing.Point(12, 12);
             this.ucWuerfel1.Name = "ucWuerfel1";
             this.ucWuerfel1.Size = new System.Drawing.Size(150, 150);
             this.ucWuerfel1.TabIndex = 0;
